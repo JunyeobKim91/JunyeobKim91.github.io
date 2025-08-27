@@ -22,7 +22,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Junyeob Kim"
-  avatar           : "JunyeobKim_MyPic.jpg"
+  avatar           : "images/JunyeobKim_MyPic.jpg"
   bio              : "Ph.D. Candidate in Economics, North Carolina State University"
   location         : "Raleigh, NC, USA"
   employer         :
