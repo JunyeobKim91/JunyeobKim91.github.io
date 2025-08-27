@@ -29,13 +29,44 @@
         <li><a href="{{ author.uri }}"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
       {% endif %}
       {% if author.email %}
-        <li>
-  <a href="mailto:{{ site.author.email }}">
-    <i class="fas fa-fw fa-envelope"></i> {{ site.author.email }}
-  </a>
-</li>
+  <li>
+    <button id="copy-email" type="button" aria-label="Copy email"
+            style="background:none;border:none;padding:0;margin:0;cursor:pointer;color:inherit;font:inherit;">
+      <i class="fas fa-fw fa-envelope"></i> {{ site.author.email }}
+    </button>
+    <span id="copy-toast" style="display:none; margin-left:.5rem; font-size:.9em; opacity:.8;">Copied ✓</span>
+  </li>
 
-      {% endif %}
+  <script>
+  (function(){
+    var btn = document.getElementById('copy-email');
+    var toast = document.getElementById('copy-toast');
+    var email = '{{ site.author.email }}';
+
+    function showToast(){
+      toast.style.display = 'inline';
+      setTimeout(function(){ toast.style.display = 'none'; }, 1200);
+    }
+
+    if(btn){
+      btn.addEventListener('click', async function(e){
+        e.preventDefault();
+        try {
+          await navigator.clipboard.writeText(email);
+        } catch(err) {
+          var ta = document.createElement('textarea');
+          ta.value = email;
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); } finally { document.body.removeChild(ta); }
+        }
+        showToast();
+      });
+    }
+  })();
+  </script>
+{% endif %}
+
       {% if author.keybase %}
         <li><a href="https://keybase.io/{{ author.keybase }}"><i class="fas fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
       {% endif %}
