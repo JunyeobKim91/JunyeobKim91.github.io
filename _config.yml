@@ -6,10 +6,11 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Junyeob Kim | Economics"
-description              : ""
-repository               : "JunyeobKim91/JunyeobKim91.github.io"
-google_scholar_stats_use_cdn : true
+title: "Junyeob Kim | Ph.D. Candidate in Economics"
+description: "Ph.D. Candidate in Economics at North Carolina State University. Research interests include Agricultural Economics, Commodity Prices, Super-cycles, Dynamic Connectedness, and Time Series Analysis."
+repository: "JunyeobKim91/JunyeobKim91.github.io"
+google_scholar_stats_use_cdn: true
+
 
 # google analytics
 google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/
