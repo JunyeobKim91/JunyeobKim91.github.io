@@ -40,13 +40,13 @@ This study examines long-term cycles in commodity prices and their interconnecte
 
 # Education
 
-- **Ph.D. in Economics**, North Carolina State University, Raleigh, NC *(2019 – Present)*  
+- **Ph.D. in Economics**, North Carolina State University, Raleigh, NC *2019 – 2025(expected)*  
   - Dissertation: *“Essays on Commodity Price Cycle”*  
-  - Committee: Profs. Barry Goodwin (Co-Advisor), Daisoon Kim (Co-Advisor), and [TBD]
+  - Committee: Profs. Barry Goodwin (Co-Advisor), Daisoon Kim (Co-Advisor)
 
-- **M.A. in Economics**, University of Wisconsin–Madison *(2017 – 2019)*
+- **M.A. in Economics**, University of Wisconsin–Madison *2017 – 2019*
 
-- **B.A. in Economics**, University of California, San Diego *(2012 – 2016)*  
-  - Transferred from **Southern Utah University**, where I studied Economics & Management *(2009 – 2012)*
+- **B.A. in Economics**, University of California, San Diego *2012 – 2016*  
+  - Transferred from **Southern Utah University**, where I studied Management *2009 – 2012*
 
 
