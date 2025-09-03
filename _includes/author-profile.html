@@ -4,9 +4,15 @@
 
 <div itemscope itemtype="http://schema.org/Person" class="profile_box">
 
-  <div class="author__avatar">
-    <img src="{{ author.avatar }}" class="author__avatar" alt="{{ author.name }}">
-  </div>
+<div class="author__avatar">
+  <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}">
+  <!-- 👇 여기에 로고 추가 -->
+  <img class="author__logo"
+       src="{{ '/images/ncstate-brick-4x1-red.png' | relative_url }}"
+       alt="NC State University"
+       style="display:block; width:100%; height:auto; margin:10px 0 6px;">
+</div>
+
 
   <div class="author__content">
     <h3 class="author__name">{{ author.name }}</h3>
