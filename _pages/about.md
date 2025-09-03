@@ -24,8 +24,7 @@ My research focuses on **Agricultural Economics, Commodity prices, Price cycle, 
 I study how global commodity price cycles interact with macroeconomic activity and international linkages.  
 
 I am currently on the 2025–2026 job market.  
-You can find my [Job Market Paper](#){:target="_blank"} and
-[**Curriculum Vitae (CV)**](https://drive.google.com/file/d/1POWTBdrYdwF4D2H5ZLGJWVzdwav-K4Nm/view?usp=drive_link){:target="_blank" rel="noopener noreferrer" style="font-size:1.1em;"}.
+You can find my [**Curriculum Vitae (CV)**](https://drive.google.com/file/d/1POWTBdrYdwF4D2H5ZLGJWVzdwav-K4Nm/view?usp=drive_link){:target="_blank" rel="noopener noreferrer" style="font-size:1.1em;"}.
 
 
 
