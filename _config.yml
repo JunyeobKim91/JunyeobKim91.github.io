@@ -23,11 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name: "Junyeob Kim"
   avatar: "images/JunyeobKim_MyPic.jpg"
-  bio: >-
-    <img src="/images/ncstate-brick-2x2-white-red-type.png?v=2"
-         alt="North Carolina State University"
-         width="140"
-         style="width:140px !important; height:auto !important; display:block; margin:10px 0 6px;">
+  bio: ""
   location: "Raleigh, NC, USA"
   employer         :
   pubmed           : 
