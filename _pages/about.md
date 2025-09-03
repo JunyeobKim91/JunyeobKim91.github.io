@@ -34,8 +34,7 @@ You can find my [**Curriculum Vitae (CV)**](https://drive.google.com/file/d/1POW
 ### *"Commodity Price Super-cycle and Dynamic Connectedness"*
 
 **Abstract:**  
-This study examines long-term cycles in commodity prices and their interconnectedness with macroeconomic activity.  
-...(중략)...
+This study examines long-term cycles in commodity prices and their interconnectedness with macroeconomic activity. A broad set of commodity prices shows evidence of two major super-cycles from 1960 to 2023, closely aligned with shifts in global economic conditions. The analysis focuses on long-run relationships among commodity prices and industrial production using the Vector Error Correction Model (VECM). To further investigate cyclical dynamics, the Diebold and Yilmaz (2012) connectedness framework is applied. The results show that commodity prices tend to move together over the long term, and their connectedness increases sharply during major economic shocks such as oil crises and financial crises. By extracting the super-cyclical component of dynamic connectedness, the study finds strong co-movement with commodity price super-cycles, suggesting the presence of a **“co-super-cycle.”** Energy commodities, in particular, have acted as dominant transmitters of super-cyclical dynamics since the early 2000s. These findings highlight the structural influence of macroeconomic shocks and emphasize the importance of a system-wide approach to commodity market analysis.
 
 ---
 
