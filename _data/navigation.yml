@@ -1,7 +1,5 @@
 # main links
 main:
-  - title: "Homepage"
-    url: "/"
   - title: "Research"
     url: "/#-Research"
   - title: "Teaching"
