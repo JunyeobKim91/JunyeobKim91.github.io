@@ -2,7 +2,7 @@
 permalink: /teaching/
 title: "Teaching"
 layout: default
-author_profile: true
+author_profile: false
 ---
 
 ## Independent Instructor, North Carolina State University
