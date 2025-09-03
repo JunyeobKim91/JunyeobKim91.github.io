@@ -1,19 +1,18 @@
 ---
 permalink: /teaching/
 title: "Teaching"
+layout: default
 author_profile: true
 ---
 
-# Teaching Experience
-
-## Independent Instructor, North Carolina State University  
+## Independent Instructor, North Carolina State University
 - **EC 302**: Intermediate Macroeconomics (Spring 2025)  
 - **ARE 201**: Introduction to Agricultural and Resource Economics (Fall 2023)  
 - **EC 205**: Fundamentals of Economics (Fall 2021)  
 
 ---
 
-## Graduate Teaching Assistant, North Carolina State University  
+## Graduate Teaching Assistant, North Carolina State University
 - **ECG 563**: Applied Microeconometrics (Master’s Level), Spring 2025 – Present  
 - **ECG 704**: Macroeconomics (Ph.D. Level), Fall 2021, Fall 2023  
 - **ECG 703**: Macroeconomics (Master’s Level), Spring 2023  
