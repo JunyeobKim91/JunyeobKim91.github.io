@@ -44,65 +44,59 @@
 /* 글자 크기 살짝만 줄여서 줄바꿈 덜 나게 */
 .masthead__menu-item a{ font-size:1rem; }
 
-/* 모바일(아이폰/아이패드 폭 좁을 때) 특화 */
-@media (max-width: 768px){
-  /* 버튼 강제로 숨김 (드롭다운 안 씀) */
-  .greedy-nav > button{ display:none !important; }
+/* ==========================================================================
+   MAIN LAYOUT STABILIZATION (Flexbox)
+   ========================================================================== */
 
-  /* visible-links + hidden-links 모두 한 줄처럼 이어서 보이게 */
-  .greedy-nav .visible-links{ flex-wrap:wrap; gap:.65rem; }
-  .greedy-nav .hidden-links,
-  .greedy-nav .hidden-links.hidden{
-    display:flex !important;
-    position:static !important;
-    margin-left:.5rem !important;
+/* --- 1. 데스크탑 기본 레이아웃 (1025px 이상) --- */
+@media (min-width: 1025px) {
+  #main {
+    display: flex;         /* Flexbox 레이아웃 적용 */
+    flex-direction: row;   /* 항목들을 가로로 배치 */
+    align-items: flex-start; /* 위쪽을 기준으로 정렬 */
+    gap: 1.5em;            /* 사이드바와 본문 사이 간격 */
   }
 
-  /* 너무 커서 잘릴 수 있으니 모바일에선 폰트 살짝 더 축소 */
-  .masthead__menu-item a{ font-size:.98rem; }
-}
-
-/* ===== sidebar / author profile 안정화 ===== */
-.sidebar .author__avatar{ text-align:center; margin-bottom:.5rem; }
-.sidebar .author__avatar img{
-  display:block; max-width:100%; height:auto;
-}
-.sidebar .author__logo{
-  display:block; max-width:100%; height:auto;
-  margin:10px 0 12px !important;
-}
-
-/* 이름·연락처 블록이 이미지 아래로 확실히 내려오도록 */
-.author__content{ clear:both; }
-
-/* 아주 좁은 화면에서 이미지가 과하게 커지지 않도록 상한선 */
-@media (max-width: 480px){
-  .sidebar .author__avatar img{ max-width:260px; margin:0 auto; }
-}
-
-/* --- TABLET LAYOUT FIX (769px ~ 1024px) --- */
-@media (min-width: 769px) and (max-width: 1024px) {
   .sidebar {
-    width: 100%;
-    float: none;
-    margin-bottom: 2em; /* 사이드바와 본문 사이 간격 */
-    text-align: center; /* 내부 요소들 가운데 정렬 */
-  }
-
-  .sidebar .author__avatar img,
-  .sidebar .author__logo {
-    max-width: 280px; /* 이미지 최대 너비 설정 */
-    margin-left: auto;
-    margin-right: auto;
+    flex: 0 0 280px;      /* 사이드바 너비를 280px로 고정 (늘어나거나 줄어들지 않음) */
+    width: 280px;
   }
 
   .page {
-    width: 100% !important; /* 중요도를 높여 다른 스타일 덮어쓰기 */
-    float: none !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    flex: 1;              /* 남은 공간을 본문이 모두 차지하도록 설정 */
+    width: auto;          /* 기존 너비 계산 방식을 무시 */
   }
+}
+
+/* --- 2. 태블릿 & 모바일 레이아웃 (1024px 이하) --- */
+@media (max-width: 1024px) {
+  #main {
+    display: flex;
+    flex-direction: column; /* 항목들을 세로로 쌓음 */
+  }
+
+  .sidebar {
+    width: 100%;
+    text-align: center;      /* 내부 프로필을 가운데 정렬 */
+    margin-bottom: 2em;
+  }
+  
+  .sidebar .author__avatar {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 280px; /* 사이드바 프로필 이미지 최대 너비 */
+  }
+
+  .page {
+    width: 100%;
+  }
+}
+
+/* --- 3. 이미지 비율 유지 및 짤림 방지 (모든 화면) --- */
+.sidebar .author__avatar img {
+  max-width: 100%; /* 이미지가 부모 요소를 넘어가지 않도록 */
+  height: auto;    /* 이미지의 원래 비율을 유지 (가장 중요!) */
+  object-fit: cover;
 }
 
 </style>
