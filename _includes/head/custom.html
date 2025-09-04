@@ -80,6 +80,26 @@
   .sidebar .author__avatar img{ max-width:260px; margin:0 auto; }
 }
 
+  /* --- iPad 가로(및 비슷한 중간 폭)에서 사이드바 이미지가 본문을 침범하지 않도록 --- */
+@media (min-width: 900px) and (max-width: 1180px){
+  /* 혹시 모를 넘침 방지 */
+  .sidebar{
+    overflow: hidden;
+    padding-right: 12px;  /* 본문과 살짝 간격 */
+  }
+
+  /* 아바타/로고의 최대 너비를 사이드바 폭보다 작게 고정 */
+  .sidebar .author__avatar img,
+  .sidebar .author__logo{
+    max-width: 240px;     /* 필요시 220~260px 사이에서 미세 조정 */
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
 </style>
 
 <!-- end custom head snippets -->
