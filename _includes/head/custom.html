@@ -24,13 +24,13 @@
 <style>
 /* ===== masthead / greedy-nav 기본 ===== */
 .greedy-nav > button { display:none !important; }
-.greedy-nav .visible-links { display:flex; gap:.75rem; align-items-center; flex-wrap:wrap; }
+.greedy-nav .visible-links { display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; }
 .greedy-nav .hidden-links, .greedy-nav .hidden-links.hidden { display:flex !important; position:static !important; inset:auto !important; background:transparent !important; box-shadow:none !important; padding:0 !important; margin:0 0 0 .5rem !important; }
 .greedy-nav .hidden-links li { display:block; }
 .masthead__menu-item a { font-size:1rem; }
 
 /* ==========================================================================
-   THE ONE AND ONLY SIDEBAR SOLUTION
+   THE ONE AND ONLY SIDEBAR SOLUTION (Final Version)
    ========================================================================== */
 
 /* --- 1. 데스크탑 레이아웃 (1025px 이상) --- */
@@ -55,11 +55,19 @@
   }
   
   /* 데스크탑에서 사이드바 내부 텍스트 왼쪽 정렬 */
-  .sidebar .author__content,
-  .sidebar .author__name,
-  .sidebar .author__bio,
-  .sidebar .author__urls {
+  .sidebar .author__profile .author__content,
+  .sidebar .author__profile .author__name,
+  .sidebar .author__profile .author__bio,
+  .sidebar .author__profile .author__urls {
     text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  /* 로고 데스크탑에서 왼쪽 정렬 */
+  .sidebar .author__profile .author__logo {
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
   }
 }
 
@@ -76,30 +84,34 @@
   .page { width: 100%; }
 
   /* 모든 사이드바 내부 요소를 세로로 쌓고 가운데 정렬 */
-  .author__avatar,
-  .author__content,
-  .author__urls-wrapper {
+  .author__profile .author__avatar,
+  .author__profile .author__content,
+  .author__profile .author__urls-wrapper,
+  .author__profile .author__logo { /* 로고도 추가 */
     display: block !important;
     width: 100% !important;
     padding: 0 !important;
     margin-bottom: 1em;
   }
   
-  .author__avatar img {
+  .author__profile .author__avatar img {
     max-width: 250px;
     margin: 0 auto;
   }
   
-  /* 모든 텍스트 내용을 확실하게 가운데 정렬 */
-  .author__content,
-  .author__name,
-  .author__bio,
-  .author__urls {
+  /* 모든 텍스트 및 로고를 확실하게 가운데 정렬 */
+  .author__profile .author__content,
+  .author__profile .author__name,
+  .author__profile .author__bio,
+  .author__profile .author__urls,
+  .author__profile .author__logo { /* 로고도 추가 */
       text-align: center !important;
+      margin-left: auto !important; /* 가운데 정렬 */
+      margin-right: auto !important; /* 가운데 정렬 */
   }
 }
 
-/* --- 3. 사이드바 공통 스타일 --- */
+/* --- 3. 사이드바 공통 스타일 (모든 화면) --- */
 
 /* 중복 아이콘의 원인인 .author__urls_sm 을 항상 숨김 */
 .author__urls_sm {
@@ -107,16 +119,34 @@
 }
 
 /* 링크 목록 기본 스타일 */
-.author__urls {
+.author__profile .author__urls {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: block; /* 항상 블록 요소로 만듭니다 */
 }
 
-/* 이메일 글자 크기 문제 해결 */
-.author__urls a {
-  font-size: 0.9em; /* 기본 글자 크기와 비슷하게 맞춤 */
-  font-weight: normal;
+/* 이메일 글자 색상, 크기, 밑줄 문제 해결 */
+.author__profile .author__urls a {
+  color: inherit !important; /* 부모 텍스트 색상 상속 (파란색 방지) */
+  text-decoration: none !important; /* 밑줄 제거 */
+  font-size: 0.9em !important; /* 기본 글자 크기와 비슷하게 맞춤 */
+  font-weight: normal !important;
+  display: inline-block !important; /* 링크 요소가 가운데 정렬되도록 */
+  margin: 0 0.5em; /* 아이콘과 텍스트 간격 조절 */
+}
+
+/* 호버 시 밑줄 다시 표시 (선택 사항) */
+.author__profile .author__urls a:hover {
+  text-decoration: underline !important;
+}
+
+/* 로고 이미지 정렬 (모든 화면) */
+.author__profile .author__logo img {
+  display: block;
+  margin: 0 auto; /* 항상 가운데 정렬 */
+  max-width: 100%; /* 너무 커지지 않게 */
+  height: auto;
 }
 </style>
 
