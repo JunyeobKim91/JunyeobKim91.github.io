@@ -57,9 +57,15 @@
     gap: 1.5em;            /* 사이드바와 본문 사이 간격 */
   }
 
-  .sidebar {
-    flex: 0 0 280px;      /* 사이드바 너비를 280px로 고정 (늘어나거나 줄어들지 않음) */
+.sidebar {
+    flex: 0 0 280px;      /* 사이드바 너비 고정 */
     width: 280px;
+    
+    /* --- 스크롤 고정 기능 추가 --- */
+    position: -webkit-sticky; /* Safari 브라우저 호환성 */
+    position: sticky;         /* 다른 최신 브라우저용 */
+    top: 1.5em;               /* 화면 상단에서 1.5em 만큼 떨어진 위치에 고정 */
+    align-self: flex-start;   /* 다른 콘텐츠가 길어져도 세로로 늘어나지 않게 함 */
   }
 
   .page {
