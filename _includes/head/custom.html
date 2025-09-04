@@ -22,33 +22,37 @@
 <link rel="prefetch" href="{{ '/teaching/' | relative_url }}" as="document">
 
 <style>
-/* 햄버거 버튼 숨김 */
-.greedy-nav > button { 
-  display: none !important; 
+/* 1) 햄버거 버튼 항상 숨김 */
+.greedy-nav > button {
+  display: none !important;
 }
 
-/* hidden-links 도 항상 한 줄에 표시 (드롭다운/오버레이 제거) */
+/* 2) 눈에 보이는 링크들은 항상 보이게 + 좁은 화면에서 줄바꿈 허용 */
+.greedy-nav .visible-links {
+  display: flex !important;
+  flex-wrap: wrap;           /* 화면이 좁으면 다음 줄로 떨어지게 */
+  align-items: center;
+  gap: .75rem;               /* 항목 사이 간격 */
+}
+
+/* 항목 기본 정렬 보정 (선택 사항) */
+.greedy-nav .visible-links li {
+  display: block;
+  margin: 0;
+}
+
+/* 3) 숨김 링크 영역(드롭다운) 완전히 비활성화 */
 .greedy-nav .hidden-links,
 .greedy-nav .hidden-links.hidden {
-  display: flex !important;
+  display: none !important;
   position: static !important;
   inset: auto !important;
   background: transparent !important;
   box-shadow: none !important;
   padding: 0 !important;
-  margin: 0 0 0 .5rem !important; /* visible-links 다음에 살짝 간격 */
-}
-
-/* 항목 정렬을 visible-links 와 동일하게 */
-.greedy-nav .hidden-links li {
-  display: block;
-}
-
-/* 메뉴 전체가 한 줄에 못 들어가면 자연스럽게 줄바꿈 허용 */
-.greedy-nav .visible-links {
-  display: flex;
-  flex-wrap: wrap;
+  margin: 0 !important;
 }
 </style>
+
 
 <!-- end custom head snippets -->
