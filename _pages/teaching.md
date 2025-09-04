@@ -1,7 +1,9 @@
+---
 layout: default
 title: Teaching
 permalink: /teaching/
 author_profile: true
+---
 
 ## Independent Instructor, North Carolina State University
 - **EC 302**: Intermediate Macroeconomics (Spring 2025)
