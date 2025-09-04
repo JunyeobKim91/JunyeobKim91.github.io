@@ -12,10 +12,11 @@
 
           <!-- navigation.yml에 정의된 추가 메뉴들 -->
           {% for link in site.data.navigation.main %}
-            <li class="masthead__menu-item">
-              <a href="{{ domain }}{{ link.url }}" data-turbo-frame="content">{{ link.title }}</a>
-            </li>
+          <li class="masthead__menu-item">
+          <a href="{{ link.url | relative_url }}" data-turbo-frame="content">{{ link.title }}</a>
+          </li>
           {% endfor %}
+
         </ul>
 
         <ul class="hidden-links hidden"></ul>
