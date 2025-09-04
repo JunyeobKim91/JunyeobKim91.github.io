@@ -31,27 +31,34 @@ layout: compress
 
 {% include scripts.html %}
 
-<!-- 전환 후 greedy-nav 재계산 강제 -->
 <script>
 (function () {
   function fixGreedyNav() {
-    // 테마의 메뉴 너비 재계산을 유도
+    // 1) 테마가 쓰는 'no-js' -> 'js' 토글이 실패한 기기 대비
+    try {
+      document.documentElement.className =
+        document.documentElement.className.replace(/\bno-js\b/g, '') + ' js';
+    } catch (e) {}
+
+    // 2) 강제로 리사이즈 이벤트를 쏴서 greedy-nav가 폭을 재계산하게 함
     window.dispatchEvent(new Event('resize'));
-    // (혹시 전역으로 제공되면 직접 호출)
+
+    // 3) 혹시 전역 API가 있으면 직접 호출 (없으면 무시)
     if (window.greedyNavigation && typeof window.greedyNavigation.fit === 'function') {
-      try { window.greedyNavigation.fit(); } catch(e) {}
+      try { window.greedyNavigation.fit(); } catch (e) {}
     }
   }
 
-  // 1) 최초 로드
+  // 첫 로드
   document.addEventListener('DOMContentLoaded', fixGreedyNav);
 
-  // 2) 해시 기반 섹션 전환을 쓰는 경우
-  window.addEventListener('hashchange', fixGreedyNav);
-
-  // 3) Turbo(또는 turbo-frame)로 부분 내비게이션하는 경우
+  // Turbo/instant.page 등 부분 로딩 이후
   document.addEventListener('turbo:load', fixGreedyNav);
   document.addEventListener('turbo:frame-load', fixGreedyNav);
+
+  // 해시 이동(Research 같은 앵커 이동)을 써도 보정
+  window.addEventListener('hashchange', fixGreedyNav);
 })();
 </script>
 </html>
+
