@@ -80,23 +80,28 @@
   .sidebar .author__avatar img{ max-width:260px; margin:0 auto; }
 }
 
-  /* --- iPad 가로(및 비슷한 중간 폭)에서 사이드바 이미지가 본문을 침범하지 않도록 --- */
-@media (min-width: 900px) and (max-width: 1180px){
-  /* 혹시 모를 넘침 방지 */
-  .sidebar{
-    overflow: hidden;
-    padding-right: 12px;  /* 본문과 살짝 간격 */
+/* --- TABLET LAYOUT FIX (769px ~ 1024px) --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sidebar {
+    width: 100%;
+    float: none;
+    margin-bottom: 2em; /* 사이드바와 본문 사이 간격 */
+    text-align: center; /* 내부 요소들 가운데 정렬 */
   }
 
-  /* 아바타/로고의 최대 너비를 사이드바 폭보다 작게 고정 */
   .sidebar .author__avatar img,
-  .sidebar .author__logo{
-    max-width: 240px;     /* 필요시 220~260px 사이에서 미세 조정 */
-    width: 100%;
-    height: auto;
+  .sidebar .author__logo {
+    max-width: 280px; /* 이미지 최대 너비 설정 */
     margin-left: auto;
     margin-right: auto;
-    display: block;
+  }
+
+  .page {
+    width: 100% !important; /* 중요도를 높여 다른 스타일 덮어쓰기 */
+    float: none !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
