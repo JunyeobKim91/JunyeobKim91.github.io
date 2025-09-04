@@ -10,16 +10,6 @@
             <a href="{{ '/' | relative_url }}" data-turbo-frame="content">Homepage</a>
           </li>
 
-          <!-- Research -->
-          <li class="masthead__menu-item">
-            <a href="{{ '/#-Research' | relative_url }}" data-turbo-frame="content">Research</a>
-          </li>
-
-          <!-- Teaching -->
-          <li class="masthead__menu-item">
-            <a href="{{ '/teaching/' | relative_url }}" data-turbo-frame="content">Teaching</a>
-          </li>
-
           <!-- navigation.yml에 정의된 추가 메뉴들 -->
           {% for link in site.data.navigation.main %}
             <li class="masthead__menu-item">
