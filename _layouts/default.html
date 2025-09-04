@@ -29,10 +29,29 @@ layout: compress
     </div>
 </turbo-frame>
 
-    {% include scripts.html %}
-    <!-- Instant.Page for faster navigation -->
-    <script src="https://instant.page/5.1.1" type="module"
-      integrity="sha384-u+4tF3kV5zqWfN6a+oCb2A9NXjY7U+g7X1d7EUX+e5dfEwZyIcW1dl6rJ8gkL7Qz"></script>
+{% include scripts.html %}
 
-  </body>
+<!-- 전환 후 greedy-nav 재계산 강제 -->
+<script>
+(function () {
+  function fixGreedyNav() {
+    // 테마의 메뉴 너비 재계산을 유도
+    window.dispatchEvent(new Event('resize'));
+    // (혹시 전역으로 제공되면 직접 호출)
+    if (window.greedyNavigation && typeof window.greedyNavigation.fit === 'function') {
+      try { window.greedyNavigation.fit(); } catch(e) {}
+    }
+  }
+
+  // 1) 최초 로드
+  document.addEventListener('DOMContentLoaded', fixGreedyNav);
+
+  // 2) 해시 기반 섹션 전환을 쓰는 경우
+  window.addEventListener('hashchange', fixGreedyNav);
+
+  // 3) Turbo(또는 turbo-frame)로 부분 내비게이션하는 경우
+  document.addEventListener('turbo:load', fixGreedyNav);
+  document.addEventListener('turbo:frame-load', fixGreedyNav);
+})();
+</script>
 </html>
