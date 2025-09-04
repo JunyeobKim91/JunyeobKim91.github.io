@@ -24,16 +24,16 @@
 <style>
 /* ===== masthead / greedy-nav 기본 ===== */
 .greedy-nav > button { display:none !important; }
-.greedy-nav .visible-links { display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; }
+.greedy-nav .visible-links { display:flex; gap:.75rem; align-items-center; flex-wrap:wrap; }
 .greedy-nav .hidden-links, .greedy-nav .hidden-links.hidden { display:flex !important; position:static !important; inset:auto !important; background:transparent !important; box-shadow:none !important; padding:0 !important; margin:0 0 0 .5rem !important; }
 .greedy-nav .hidden-links li { display:block; }
 .masthead__menu-item a { font-size:1rem; }
 
 /* ==========================================================================
-   MAIN LAYOUT & SIDEBAR POSITIONING
+   THE ONE AND ONLY SIDEBAR SOLUTION
    ========================================================================== */
 
-/* --- 데스크탑 레이아웃 (1025px 이상) --- */
+/* --- 1. 데스크탑 레이아웃 (1025px 이상) --- */
 @media (min-width: 1025px) {
   #main {
     display: flex;
@@ -53,9 +53,17 @@
     flex: 1;
     min-width: 0; /* 내용이 넘치는 것을 방지 */
   }
+  
+  /* 데스크탑에서 사이드바 내부 텍스트 왼쪽 정렬 */
+  .sidebar .author__content,
+  .sidebar .author__name,
+  .sidebar .author__bio,
+  .sidebar .author__urls {
+    text-align: left;
+  }
 }
 
-/* --- 태블릿 & 모바일 레이아웃 (1024px 이하) --- */
+/* --- 2. 태블릿 & 모바일 레이아웃 (1024px 이하) --- */
 @media (max-width: 1024px) {
   #main { display: block; }
 
@@ -66,8 +74,50 @@
   }
 
   .page { width: 100%; }
+
+  /* 모든 사이드바 내부 요소를 세로로 쌓고 가운데 정렬 */
+  .author__avatar,
+  .author__content,
+  .author__urls-wrapper {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin-bottom: 1em;
+  }
+  
+  .author__avatar img {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  
+  /* 모든 텍스트 내용을 확실하게 가운데 정렬 */
+  .author__content,
+  .author__name,
+  .author__bio,
+  .author__urls {
+      text-align: center !important;
+  }
 }
 
+/* --- 3. 사이드바 공통 스타일 --- */
+
+/* 중복 아이콘의 원인인 .author__urls_sm 을 항상 숨김 */
+.author__urls_sm {
+  display: none !important;
+}
+
+/* 링크 목록 기본 스타일 */
+.author__urls {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 이메일 글자 크기 문제 해결 */
+.author__urls a {
+  font-size: 0.9em; /* 기본 글자 크기와 비슷하게 맞춤 */
+  font-weight: normal;
+}
 </style>
 
 <!-- end custom head snippets -->
