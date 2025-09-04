@@ -410,33 +410,3 @@
   font-size: $type-size-6;
   text-transform: uppercase;
 }
-
-/* ==========================================================================
-   TABLET & MEDIUM SCREEN FIX (아이패드 겹침 현상 수정을 위해 추가)
-   ========================================================================== */
-
-@media (max-width: 1024px) {
-
-  .sidebar {
-    width: 100%;
-    float: none;
-    margin-bottom: 2em; /* 사이드바와 아래 내용 사이에 간격 추가 */
-  }
-
-  .page {
-    width: 100%;
-    margin-left: 0;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* * .page 클래스 안에 있는 @include span, @include prefix 등 
-   * 그리드 관련 속성을 초기화합니다.
-   */
-  .page {
-    position: relative;
-    left: auto;
-    right: auto;
-    float: none;
-  }
-}
