@@ -6,10 +6,16 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
+# Site Settings
 title: "Junyeob Kim | Ph.D. Candidate in Economics"
 description: ""
 repository: "JunyeobKim91/JunyeobKim91.github.io"
 google_scholar_stats_use_cdn: true
+
+# 새로 추가
+url: "https://junyeobkim91.github.io"
+baseurl: ""
+
 
 
 # google analytics
