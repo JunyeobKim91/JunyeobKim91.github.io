@@ -21,4 +21,34 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 <link rel="prefetch" href="{{ '/teaching/' | relative_url }}" as="document">
 
+<style>
+/* 햄버거 버튼 숨김 */
+.greedy-nav > button { 
+  display: none !important; 
+}
+
+/* hidden-links 도 항상 한 줄에 표시 (드롭다운/오버레이 제거) */
+.greedy-nav .hidden-links,
+.greedy-nav .hidden-links.hidden {
+  display: flex !important;
+  position: static !important;
+  inset: auto !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 0 0 .5rem !important; /* visible-links 다음에 살짝 간격 */
+}
+
+/* 항목 정렬을 visible-links 와 동일하게 */
+.greedy-nav .hidden-links li {
+  display: block;
+}
+
+/* 메뉴 전체가 한 줄에 못 들어가면 자연스럽게 줄바꿈 허용 */
+.greedy-nav .visible-links {
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>
+
 <!-- end custom head snippets -->
