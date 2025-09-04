@@ -10,7 +10,8 @@
 </script>
 
 <!-- styles -->
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<link rel="preload" as="style" href="{{ '/assets/css/main.css' | relative_url }}" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}"></noscript>
 <meta http-equiv="cleartype" content="on">
 <!-- Prefetch Teaching page for faster load -->
 <link rel="prefetch" href="{{ '/' | relative_url }}" as="document">
