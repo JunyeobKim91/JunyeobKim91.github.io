@@ -1,5 +1,4 @@
 <meta charset="utf-8">
-
 {% include seo.html %}
 
 <meta name="HandheldFriendly" content="True">
@@ -10,10 +9,7 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
-<!-- For all browsers -->
-<link rel="stylesheet" href="assets/css/main.css">
+<!-- styles -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
 <meta http-equiv="cleartype" content="on">
-<head>
-  <base target="_blank">
-</head>
