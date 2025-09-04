@@ -1,6 +1,8 @@
 # main links
 main:
+  - title: "Homepage"
+    url: "{{ '/' | relative_url }}"
   - title: "Research"
-    url: "/#-Research"
+    url: "{{ '/#-Research' | relative_url }}"
   - title: "Teaching"
-    url: "/teaching/"
+    url: "{{ '/teaching/' | relative_url }}"
