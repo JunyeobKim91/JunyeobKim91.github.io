@@ -23,32 +23,17 @@
 
 <style>
 /* ===== masthead / greedy-nav 기본 ===== */
-
-/* 데스크탑: 햄버거 숨기고 항목 한 줄 배치 */
-.greedy-nav > button{ display:none !important; }
-.greedy-nav .visible-links{
-  display:flex; gap:.75rem; align-items:center;
-  flex-wrap:wrap;           /* 필요하면 줄바꿈 허용 */
-}
-.greedy-nav .hidden-links,
-.greedy-nav .hidden-links.hidden{
-  display:flex !important;  /* 데스크탑에서도 혹시 모를 이동 대비 */
-  position:static !important;
-  inset:auto !important;
-  background:transparent !important;
-  box-shadow:none !important;
-  padding:0 !important; margin:0 0 0 .5rem !important;
-}
-.greedy-nav .hidden-links li{ display:block; }
-
-/* 글자 크기 살짝만 줄여서 줄바꿈 덜 나게 */
-.masthead__menu-item a{ font-size:1rem; }
+.greedy-nav > button { display:none !important; }
+.greedy-nav .visible-links { display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; }
+.greedy-nav .hidden-links, .greedy-nav .hidden-links.hidden { display:flex !important; position:static !important; inset:auto !important; background:transparent !important; box-shadow:none !important; padding:0 !important; margin:0 0 0 .5rem !important; }
+.greedy-nav .hidden-links li { display:block; }
+.masthead__menu-item a { font-size:1rem; }
 
 /* ==========================================================================
-   FINAL MAIN LAYOUT (Flexbox)
+   DEFINITIVE LAYOUT SOLUTION
    ========================================================================== */
 
-/* --- 1. 데스크탑 기본 레이아웃 (1025px 이상) --- */
+/* --- 1. 데스크탑 레이아웃 (1025px 이상) --- */
 @media (min-width: 1025px) {
   #main {
     display: flex;
@@ -68,44 +53,52 @@
 
   .page {
     flex: 1;
-    min-width: 0; /* flex 자식 요소가 부모를 넘어가지 않도록 함 */
+    min-width: 0;
   }
 }
 
 /* --- 2. 태블릿 & 모바일 레이아웃 (1024px 이하) --- */
 @media (max-width: 1024px) {
-  #main {
-    display: block; /* 모바일에선 Flexbox 대신 기본 블록으로 전환 */
-  }
+  #main { display: block; }
 
   .sidebar {
     width: 100%;
     text-align: center;
     margin-bottom: 2em;
+    /* 아래 속성들은 이 화면 크기에서 초기화합니다 */
+    position: static;
+    flex: none;
   }
 
-  .sidebar .author__avatar {
+  .author__avatar {
     margin-left: auto;
     margin-right: auto;
     max-width: 280px;
   }
 
-  .page {
-    width: 100%;
-  }
+  .page { width: 100%; }
 }
 
 /* --- 3. 사이드바 내부 요소 정렬 및 이미지 비율 유지 (모든 화면) --- */
 .author__profile .author__avatar,
 .author__profile .author__logo,
 .author__profile .author__content {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
+  text-align: left; /* 내부 글자는 왼쪽 정렬 */
+  padding-left: 0; /* 불필요한 패딩 제거 */
 }
 
 .sidebar .author__avatar img {
   max-width: 100%;
   height: auto;
+}
+
+/* 화면이 좁을 때 사이드바 프로필 정렬을 위한 추가 코드 */
+@media (max-width: 1024px) {
+    .author__profile .author__content {
+        text-align: center; /* 모바일에선 텍스트도 가운데 정렬 */
+    }
 }
 
 </style>
