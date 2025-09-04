@@ -8,12 +8,13 @@ layout: compress
     {% include head.html %}
     {% include head/custom.html %}
   </head>
+<script type="module" src="https://cdn.skypack.dev/@hotwired/turbo"></script>
 
   <body>
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}
-
+<turbo-frame id="content">
     <div id="main" role="main">
       {% include sidebar.html %}
     
@@ -26,6 +27,7 @@ layout: compress
         </div>
       </article>
     </div>
+</turbo-frame>
 
     {% include scripts.html %}
     <!-- Instant.Page for faster navigation -->
