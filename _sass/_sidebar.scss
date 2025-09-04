@@ -7,7 +7,6 @@
    ========================================================================== */
 
 .sidebar {
-  /* 비워두거나 아래 한 줄만 남겨주세요 */
   margin-bottom: 1em;
 }
 
@@ -30,23 +29,18 @@
 /*
    Author profile and links
    ========================================================================== */
-.profile_box{
-  @include breakpoint($large) {
-    display: block;
-  }
-  display: flex;
-  justify-content: flex-start;
-  align-content: flex-start;
-  align-items: center;
-}
+
+/* .profile_box는 이제 필요 없으므로 완전히 삭제합니다. */
+/* (기존에 있다면 삭제해주세요) */
 
 .author__avatar {
-  display: table-cell;
-  vertical-align: top;
-  width: 75px;
-  // set width only, for non-square avatars
-  // height: 36px;
-
+  /* display: table-cell; 속성 제거 */
+  /* vertical-align: top; 속성 제거 */
+  width: auto; /* 너비 자동 설정 */
+  height: auto; /* 높이 자동 설정 */
+  margin-left: auto; /* 가운데 정렬을 위해 추가 */
+  margin-right: auto; /* 가운데 정렬을 위해 추가 */
+  
   @include breakpoint($large) {
     display: block;
     width: auto;
@@ -55,9 +49,15 @@
 
   img {
     max-width: 280px;
-    min-width: 280px;
+    min-width: 280px; /* 이 값은 고정폭을 유지합니다. */
     object-fit: cover;
     border-radius: 0;
+    
+    /* 작은 화면에서 이미지 패딩/보더 제거 */
+    @media (max-width: 1024px) {
+        padding: 0;
+        border: none;
+    }
 
     @include breakpoint($large) {
       padding: 5px;
@@ -67,23 +67,22 @@
 }
 
 .author__content {
-  display: table-cell;
-  vertical-align: top;
-  padding-left: 10px;
-  min-width: 120px;
-  // padding-right: 25px;
-  line-height: 1;
+  /* display: table-cell; 속성 제거 */
+  /* vertical-align: top; 속성 제거 */
+  display: block; /* 항상 블록 요소로 만듭니다 */
+  width: 100%;    /* 항상 너비를 100%로 만듭니다 */
+  padding-left: 0;
+  padding-right: 0;
+  line-height: 1.5; /* 줄 간격을 좀 더 보기 좋게 조정 */
+  text-align: center; /* 모바일에서 모든 텍스트 가운데 정렬 */
 
   @include breakpoint($large) {
-    display: block;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
+    text-align: left; /* 데스크탑에서는 왼쪽 정렬로 되돌림 */
   }
 }
 
 .author__name {
-  margin: 0;
+  margin: 0.5em 0; /* 위아래 여백을 조금 더 줍니다 */
 
   @include breakpoint($large) {
     margin-top: 10px;
@@ -101,6 +100,7 @@
 
 .author__bio {
   margin: 0;
+  margin-bottom: 1em; /* 아래 여백 추가 */
 
   @include breakpoint($large) {
     margin-top: 10px;
@@ -110,13 +110,16 @@
 
 .author__urls-wrapper {
   position: relative;
-  display: table-cell;
-  vertical-align: middle;
+  /* display: table-cell; 속성 제거 */
+  /* vertical-align: middle; 속성 제거 */
+  display: block; /* 항상 블록 요소로 만듭니다 */
+  width: 100%;    /* 항상 너비를 100%로 만듭니다 */
   font-family: $sans-serif;
   z-index: 10;
-  position: relative;
   margin-left: auto;
+  margin-right: auto; /* 가운데 정렬을 위해 추가 */
   cursor: pointer;
+  text-align: center; /* 버튼/링크 가운데 정렬 */
 
   li:last-child {
     a {
@@ -126,6 +129,7 @@
 
   @include breakpoint($large) {
     display: block;
+    text-align: left; /* 데스크탑에서는 왼쪽 정렬로 되돌림 */
   }
 
   button {
@@ -140,7 +144,7 @@
 
 .author__urls {
   display: none;
-  position: absolute;
+  position: absolute; /* 이 속성은 작은 화면에서만 적용되어야 함 */
   right: 0;
   margin-top: 15px;
   padding: 10px;
@@ -151,6 +155,7 @@
   z-index: -1;
   box-shadow: 0 0 10px rgba(#000, 0.25);
   cursor: default;
+  text-align: left; /* 드롭다운 메뉴 텍스트 정렬 */
 
   @include breakpoint($large) {
     display: block;
@@ -160,6 +165,7 @@
     border: 0;
     background: transparent;
     box-shadow: none;
+    text-align: left; /* 데스크탑에서는 왼쪽 정렬 유지 */
   }
 
   &:before {
