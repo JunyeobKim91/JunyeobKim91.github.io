@@ -1,9 +1,7 @@
----
+layout: default
+title: Teaching
 permalink: /teaching/
-layout: default        # ← 홈페이지와 같은 레이아웃
-author_profile: true   # ← 왼쪽 사이드바 유지
-title: "Teaching"      # (상단 제목을 안 보이고 시작하려면 "" 로 비워도 됨)
----
+author_profile: true
 
 ## Independent Instructor, North Carolina State University
 - **EC 302**: Intermediate Macroeconomics (Spring 2025)
