@@ -30,21 +30,19 @@
 .masthead__menu-item a { font-size:1rem; }
 
 /* ==========================================================================
-   DEFINITIVE LAYOUT SOLUTION V2
+   MAIN LAYOUT & SIDEBAR POSITIONING
    ========================================================================== */
 
-/* --- 1. 데스크탑 레이아웃 (1025px 이상) --- */
+/* --- 데스크탑 레이아웃 (1025px 이상) --- */
 @media (min-width: 1025px) {
   #main {
     display: flex;
-    flex-direction: row;
     align-items: flex-start;
     gap: 1.5em;
   }
 
   .sidebar {
-    flex: 0 0 280px;
-    width: 280px;
+    flex: 0 0 280px; /* 너비 280px 고정 */
     position: -webkit-sticky;
     position: sticky;
     top: 1.5em;
@@ -53,52 +51,19 @@
 
   .page {
     flex: 1;
-    min-width: 0;
+    min-width: 0; /* 내용이 넘치는 것을 방지 */
   }
 }
 
-/* --- 2. 태블릿 & 모바일 레이아웃 (1024px 이하) --- */
+/* --- 태블릿 & 모바일 레이아웃 (1024px 이하) --- */
 @media (max-width: 1024px) {
-  #main { display: block; } /* 모바일에선 Flexbox 대신 기본 블록으로 전환 */
+  #main { display: block; }
 
   .sidebar {
     width: 100%;
     margin-bottom: 2em;
     position: static; /* 고정 해제 */
   }
-
-  /* ▼▼▼ 모든 사이드바 내부 요소를 강제로 세로로 쌓고 가운데 정렬합니다 ▼▼▼ */
-  .author__avatar,
-  .author__content,
-  .author__urls-wrapper {
-    display: block !important;     /* 강제로 한 줄 전체를 차지하도록 변경 */
-    width: 100% !important;         /* 너비를 100%로 설정 */
-    padding-left: 0 !important;     /* 불필요한 왼쪽 여백 제거 */
-    margin-bottom: 1em;             /* 요소들 사이에 적절한 간격 추가 */
-  }
-
-  /* 모든 텍스트 내용을 확실하게 가운데 정렬합니다 */
-  .author__content,
-  .author__name,
-  .author__bio,
-  .author__urls-wrapper {
-      text-align: center !important;
-  }
-
-  .author__avatar img {
-    min-width: unset !important; /* 모바일에서 이미지 최소 너비 제한 해제 */
-    max-width: 250px !important; /* 모바일에서 너무 커지지 않도록 최대 너비 설정 */
-    margin: 0 auto;              /* 이미지 가운데 정렬 */
-  }
-  
-  .author__urls {
-      display: block !important; /* 정보(링크)가 항상 보이도록 설정 */
-      position: static !important; /* 위치 고정 해제 */
-      box-shadow: none !important;
-      background: none !important;
-      border: none !important;
-  }
-  /* ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ */
 
   .page { width: 100%; }
 }
