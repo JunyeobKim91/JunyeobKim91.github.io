@@ -5,6 +5,12 @@ permalink: /teaching/
 author_profile: true
 ---
 
+<style>
+/* 이 페이지에서만 사이드바 이미지 숨김 */
+.author__avatar img,
+.author__logo { display: none !important; }
+</style>
+
 ## Independent Instructor, North Carolina State University
 - **EC 302**: Intermediate Macroeconomics (Spring 2025)
 - **ARE 201**: Introduction to Agricultural and Resource Economics (Fall 2023)
