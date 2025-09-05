@@ -19,9 +19,9 @@ redirect_from:
 
 # Welcome!
 
-**Ph.D. Candidate in Economics, North Carolina State University**
+Ph.D. Candidate in Economics, North Carolina State University
 
-My research focuses on **Agricultural Economics, Commodity prices, Price cycle, and Time-series**.  
+My research focuses on Agricultural Economics, Commodity prices, Price cycle, and Time-series.
 I study how global commodity price cycles interact with macroeconomic activity and international linkages.
 
 I am currently on the 2025–2026 job market.  
