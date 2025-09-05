@@ -23,7 +23,6 @@ Ph.D. Candidate in Economics, North Carolina State University
 
 My research focuses on Agricultural Economics, Commodity prices, Price cycle, and Time-series.
 
-I study how global commodity price cycles interact with macroeconomic activity and international linkages. I am currently on the 2025–2026 job market. 
 You can find my [**Curriculum Vitae (CV)**](https://drive.google.com/file/d/1cc-Elinx-wNS3XPOIOIAZ5TNE3LnP-Dv/view?usp=drive_link){:target="_blank" rel="noopener noreferrer" style="font-size:1.1em; color:#1a73e8;"}.
 
 <br>
