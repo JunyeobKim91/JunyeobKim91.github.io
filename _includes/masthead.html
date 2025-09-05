@@ -6,9 +6,11 @@
 
         <ul class="visible-links">
           <!-- Homepage 버튼 -->
-          <li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item">
-            <a href="{{ '/' | relative_url }}" data-turbo-frame="content">Homepage</a>
-          </li>
+- <li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item">
++ <li class="masthead__menu-item masthead__menu-home-item">
+    <a href="{{ '/' | relative_url }}" data-turbo-frame="content">Homepage</a>
+  </li>
+
 
           <!-- navigation.yml에 정의된 추가 메뉴들 -->
           {% for link in site.data.navigation.main %}
