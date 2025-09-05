@@ -188,23 +188,3 @@
     display: none;
   }
 }
-
-/* ==========================================================================
-   CUSTOM: 모바일 화면에서 상단 메뉴 항상 보이게 하기
-   ========================================================================== */
-
-.greedy-nav {
-  @include breakpoint(max-width $large) {
-    
-    .visible-links {
-      display: flex !important;
-      visibility: visible !important;
-      flex-wrap: wrap !important;
-    }
-
-    .hidden-links,
-    .greedy-nav__toggle {
-      display: none !important;
-    }
-  }
-}
