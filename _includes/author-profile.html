@@ -41,7 +41,7 @@
       
       {% if author.email %}
         <li>
-          <a href="mailto:{{ author.email }}" style="font-size: 0.8rem;">
+          <a href="mailto:{{ author.email }}">
             <i class="fas fa-fw fa-envelope"></i> {{ author.email }}
           </a>
         </li>
@@ -137,7 +137,7 @@
     </ul>
       <div class="author__urls_sm">
         {% if author.email %}
-          <a href="mailto:{{ author.email }}" style="font-size: 0.8rem;">
+          <a href="mailto:{{ author.email }}">
             <i class="fas fa-fw fa-envelope" aria-hidden="true"></i> {{ author.email }}
           </a>
         {% endif %}
