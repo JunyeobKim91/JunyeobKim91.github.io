@@ -22,23 +22,7 @@
 <link rel="prefetch" href="{{ '/teaching/' | relative_url }}" as="document">
 
 <style>
-/* ===== CORRECTED masthead / greedy-nav ===== */
-/* On screens smaller than 1025px... */
-@media (max-width: 1024px) {
-  /* Force the visible links container to stay visible and wrap its contents */
-  .greedy-nav .visible-links {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    visibility: visible !important;
-    gap: 0.75rem; /* Optional: adds a little space between wrapped links */
-  }
 
-  /* Force the hamburger button AND the hidden links drawer to NEVER appear */
-  .greedy-nav .greedy-nav__toggle,
-  .greedy-nav .hidden-links {
-    display: none !important;
-  }
-}
 
 /* ==========================================================================
    DEFINITIVE LAYOUT SOLUTION (Fixed Sidebar & Responsive Profile)
@@ -140,6 +124,23 @@
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+
+  /* 햄버거 버튼과 드롭다운을 전 해상도에서 완전히 비활성화 */
+.greedy-nav > button { 
+  display: none !important; 
+}
+.greedy-nav .hidden-links {
+  display: none !important;
+}
+
+/* 메뉴 항목은 항상 보이게 + 공간 부족하면 자연스럽게 줄바꿈 */
+.greedy-nav .visible-links {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.75rem;          /* 간격 살짝 */
+  visibility: visible !important;
 }
 
 </style>
