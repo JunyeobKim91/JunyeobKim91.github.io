@@ -129,8 +129,9 @@
   }
 }
 
+/* 데스크톱용 목록 */
 .author__urls {
-  /* 수정: 태블릿 화면에서 중복으로 뜨는 문제를 해결하기 위해 기본적으로 숨김 */
+  /* 중요: 기본적으로 숨겨서 작은 화면/중간 화면에 나오지 않게 함 */
   display: none;
   position: relative;
   margin: 0;
@@ -141,7 +142,7 @@
   box-shadow: none;
   text-align: left;
   
-  /* 수정: 아주 큰 화면에서만 나타나도록 설정 */
+  /* 중요: 아주 큰 화면에서만 표시 */
   @include breakpoint($x-large) {
     display: block;
   }
@@ -170,8 +171,9 @@
   }
 }
 
+/* 모바일/태블릿용 목록 */
 .author__urls_sm {
-  /* 수정: 작은 화면에서는 보이도록 설정 */
+  /* 중요: 기본적으로 표시해서 작은 화면/중간 화면에 나오게 함 */
   display: block;
   padding: .25em;
   font-size: 0.9rem;
@@ -183,8 +185,28 @@
     }
   }
 
-  /* 수정: 아주 큰 화면에서는 숨김 */
+  /* 중요: 아주 큰 화면에서는 숨김 */
   @include breakpoint($x-large) {
     display: none;
+  }
+}
+
+/* ==========================================================================
+   CUSTOM: 모바일 화면에서 상단 메뉴 항상 보이게 하기
+   ========================================================================== */
+
+.greedy-nav {
+  @include breakpoint(max-width $large) {
+    
+    .visible-links {
+      display: flex !important;
+      visibility: visible !important;
+      flex-wrap: wrap !important;
+    }
+
+    .hidden-links,
+    .greedy-nav__toggle {
+      display: none !important;
+    }
   }
 }
