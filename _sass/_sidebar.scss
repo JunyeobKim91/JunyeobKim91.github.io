@@ -229,3 +229,26 @@
     display: none;
   }
 }
+
+/* ==========================================================================
+   CUSTOM: 모바일 화면에서 상단 메뉴 항상 보이게 하기
+   ========================================================================== */
+
+.greedy-nav {
+  // $large(1024px)보다 작은 화면일 때 적용
+  @include breakpoint(max-width $large) {
+    
+    // 메뉴 링크들이 들어있는 컨테이너 설정
+    .visible-links {
+      display: flex !important;         // 항상 보이도록 flexbox로 설정
+      visibility: visible !important;  // 숨김 처리 무시
+      flex-wrap: wrap !important;      // 공간이 부족하면 다음 줄로 넘어가도록 설정
+    }
+
+    // 기존의 숨김 메뉴와 햄버거 버튼은 완전히 숨김
+    .hidden-links,
+    .greedy-nav__toggle {
+      display: none !important;
+    }
+  }
+}
