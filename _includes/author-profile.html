@@ -41,35 +41,10 @@
       {% endif %}
       {% if author.email %}
   <li>
-    <a href="#" id="copy-email" data-email="{{ site.author.email }}">
-      <i class="fas fa-fw fa-envelope"></i> {{ site.author.email }}
-    </a>
-    <span id="copy-toast" style="display:none; margin-left:.5rem; font-size:.9em; opacity:.8;">Copied ✓</span>
-  </li>
-
-  <script>
-  (function(){
-    var link = document.getElementById('copy-email');
-    var toast = document.getElementById('copy-toast');
-    if(!link) return;
-    link.addEventListener('click', async function(e){
-      e.preventDefault();
-      var email = link.getAttribute('data-email') || '';
-      if(!email) return;
-      try {
-        await navigator.clipboard.writeText(email);
-      } catch(err) {
-        var ta = document.createElement('textarea');
-        ta.value = email;
-        document.body.appendChild(ta);
-        ta.select();
-        try { document.execCommand('copy'); } finally { document.body.removeChild(ta); }
-      }
-      toast.style.display = 'inline';
-      setTimeout(function(){ toast.style.display = 'none'; }, 1200);
-    });
-  })();
-  </script>
+  <a href="mailto:{{ author.email }}">
+    <i class="fas fa-fw fa-envelope"></i> {{ author.email }}
+  </a>
+</li>
 {% endif %}
 
 
@@ -162,9 +137,11 @@
 {% endif %}
     </ul>
       <div class="author__urls_sm">
-      {% if author.uri %}
-        <a href="{{ author.uri }}"><i class="fas fa-fw fa-link" aria-hidden="true"></i></a>
-      {% endif %}
+      {% if author.email %}
+  <a href="mailto:{{ author.email }}">
+    <i class="fas fa-fw fa-envelope" aria-hidden="true"></i> {{ author.email }}
+  </a>
+{% endif %}
       {% if author.email %}
         <a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i></a>
       {% endif %}
