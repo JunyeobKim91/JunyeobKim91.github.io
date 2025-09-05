@@ -5,21 +5,19 @@
         <button><div class="navicon"></div></button>
 
         <ul class="visible-links">
-          <!-- Homepage 버튼 -->
-- <li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item">
-+ <li class="masthead__menu-item masthead__menu-home-item">
+  <!-- Homepage 버튼 -->
+  <li class="masthead__menu-item masthead__menu-home-item">
     <a href="{{ '/' | relative_url }}" data-turbo-frame="content">Homepage</a>
   </li>
 
+  <!-- navigation.yml 에 정의된 메뉴 -->
+  {% for link in site.data.navigation.main %}
+    <li class="masthead__menu-item">
+      <a href="{{ link.url | relative_url }}" data-turbo-frame="content">{{ link.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
 
-          <!-- navigation.yml에 정의된 추가 메뉴들 -->
-          {% for link in site.data.navigation.main %}
-          <li class="masthead__menu-item">
-          <a href="{{ link.url | relative_url }}" data-turbo-frame="content">{{ link.title }}</a>
-          </li>
-          {% endfor %}
-
-        </ul>
 
         <ul class="hidden-links hidden"></ul>
       </nav>
