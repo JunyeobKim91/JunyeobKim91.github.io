@@ -17,6 +17,8 @@
        style="display:block;width:100%;height:auto;margin:10px 0 12px;" />
 </div>
 
+
+
   <div class="author__content">
     <h3 class="author__name">{{ author.name }}</h3>
     {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
@@ -136,7 +138,7 @@
       <div class="author__urls_sm">
         {% if author.email %}
           <a href="mailto:{{ author.email }}">
-            <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
+            <i class="fas fa-fw fa-envelope" aria-hidden="true"></i> {{ author.email }}
           </a>
         {% endif %}
         
