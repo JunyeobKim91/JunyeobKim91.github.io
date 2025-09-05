@@ -17,6 +17,8 @@
        style="display:block;width:100%;height:auto;margin:10px 0 12px;" />
 </div>
 
+
+
   <div class="author__content">
     <h3 class="author__name">{{ author.name }}</h3>
     {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
@@ -39,7 +41,7 @@
       
       {% if author.email %}
         <li>
-          <a href="mailto:{{ author.email }}">
+          <a href="mailto:{{ author.email }}" style="font-size: 0.8rem;">
             <i class="fas fa-fw fa-envelope"></i> {{ author.email }}
           </a>
         </li>
@@ -135,7 +137,7 @@
     </ul>
       <div class="author__urls_sm">
         {% if author.email %}
-          <a href="mailto:{{ author.email }}">
+          <a href="mailto:{{ author.email }}" style="font-size: 0.8rem;">
             <i class="fas fa-fw fa-envelope" aria-hidden="true"></i> {{ author.email }}
           </a>
         {% endif %}
@@ -228,4 +230,5 @@
           <a href="https://en.wikipedia.org/wiki/User:{{ author.wikipedia }}"><i class="fab fa-fw fa-wikipedia-w" aria-hidden="true"></i></a>
         {% endif %}
     </div>
+  </div>
 </div>
