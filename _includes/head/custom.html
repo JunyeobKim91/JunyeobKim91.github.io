@@ -22,12 +22,23 @@
 <link rel="prefetch" href="{{ '/teaching/' | relative_url }}" as="document">
 
 <style>
-/* ===== masthead / greedy-nav 기본 ===== */
-.greedy-nav > button { display:none !important; }
-.greedy-nav .visible-links { display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; }
-.greedy-nav .hidden-links, .greedy-nav .hidden-links.hidden { display:flex !important; position:static !important; inset:auto !important; background:transparent !important; box-shadow:none !important; padding:0 !important; margin:0 0 0 .5rem !important; }
-.greedy-nav .hidden-links li { display:block; }
-.masthead__menu-item a { font-size:1rem; }
+/* ===== CORRECTED masthead / greedy-nav ===== */
+/* On screens smaller than 1025px... */
+@media (max-width: 1024px) {
+  /* Force the visible links container to stay visible and wrap its contents */
+  .greedy-nav .visible-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    visibility: visible !important;
+    gap: 0.75rem; /* Optional: adds a little space between wrapped links */
+  }
+
+  /* Force the hamburger button AND the hidden links drawer to NEVER appear */
+  .greedy-nav .greedy-nav__toggle,
+  .greedy-nav .hidden-links {
+    display: none !important;
+  }
+}
 
 /* ==========================================================================
    DEFINITIVE LAYOUT SOLUTION (Fixed Sidebar & Responsive Profile)
@@ -49,29 +60,28 @@
     position: sticky;
     top: 1.5em;
     align-self: flex-start;
-    min-width: 0; /* Flex item이 내용에 의해 너무 커지지 않도록 */
+    min-width: 0;
   }
 
   .page {
     flex: 1;
-    min-width: 0; /* Flex item이 내용에 의해 너무 커지지 않도록 */
+    min-width: 0;
   }
 }
 
 /* --- 2. 태블릿 & 모바일 레이아웃 (1024px 이하) --- */
 @media (max-width: 1024px) {
-  #main { display: block; } /* 모바일에선 Flexbox 대신 기본 블록으로 전환 */
+  #main { display: block; }
 
   .sidebar {
     width: 100%;
-    text-align: center; /* 전체 사이드바 내용 가운데 정렬 */
+    text-align: center;
     margin-bottom: 2em;
-    position: static; /* 고정 해제 */
-    flex: none; /* Flexbox 설정 초기화 */
-    padding: 1em 0; /* 위아래 패딩 추가하여 요소들이 붙지 않게 */
+    position: static;
+    flex: none;
+    padding: 1em 0;
   }
 
-  /* 사이드바 내부 프로필 이미지 가운데 정렬 */
   .sidebar .author__avatar {
     margin-left: auto;
     margin-right: auto;
@@ -80,38 +90,33 @@
 
   .page { width: 100%; }
 
-  /* 작은 화면에서 이미지와 텍스트가 겹치지 않도록 강제로 블록 & 마진 */
   .author__profile .author__avatar,
   .author__profile .author__logo,
   .author__profile .author__content {
     display: block !important;
-    width: auto !important; /* 너비를 자동으로 설정하여 이미지 크기 유지 */
-    margin: 0.5em auto !important; /* 위아래 여백, 가운데 정렬 */
+    width: auto !important;
+    margin: 0.5em auto !important;
     padding: 0 !important;
   }
 
-  /* 이미지 자체의 min-width는 sidebar.scss에서 조정 */
   .author__profile .author__avatar img {
-      min-width: unset !important; /* 작은 화면에서 고정된 min-width 제거 */
+      min-width: unset !important;
   }
 
-  /* 로고 이미지도 중앙 정렬 */
   .author__profile .author__logo {
       display: block;
       margin: 0.5em auto;
       text-align: center;
   }
 
-  /* 이름 및 정보 텍스트 중앙 정렬 */
   .author__profile .author__name,
   .author__profile .author__bio {
       text-align: center !important;
       margin-left: auto !important;
       margin-right: auto !important;
-      max-width: 90%; /* 텍스트가 너무 길어서 옆으로 넘어가지 않게 */
+      max-width: 90%;
   }
 
-  /* 이메일 아이콘과 같은 URL 요소들도 중앙 정렬 */
   .author__urls-wrapper {
       text-align: center !important;
       margin-left: auto !important;
@@ -123,21 +128,18 @@
 .author__profile .author__avatar,
 .author__profile .author__logo,
 .author__profile .author__content {
-  /* 기본적으로 블록 요소로 만듭니다. */
   display: block;
   width: 100%;
-  text-align: center; /* 기본적으로 가운데 정렬 */
+  text-align: center;
   padding-left: 0;
   padding-right: 0;
-  margin: 0 auto; /* 상하좌우 여백 초기화 및 가운데 정렬 */
+  margin: 0 auto;
 }
 
 .sidebar .author__avatar img {
   max-width: 100%;
   height: auto;
-  display: block; /* 이미지도 블록 요소로 만듭니다 */
+  display: block;
 }
 
 </style>
-
-<!-- end custom head snippets -->
