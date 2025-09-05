@@ -1,478 +1,203 @@
 /* ==========================================================================
-
-   SIDEBAR
-
-   ========================================================================== */
-
-
+   SIDEBAR
+   ========================================================================== */
 
 /*
-
-   Default
-
-   ========================================================================== */
-
-
+   Default
+   ========================================================================== */
 
 .sidebar {
-
-  margin-bottom: 1em;
-
+  margin-bottom: 1em;
 }
-
-
 
 .sidebar__right {
+  margin-bottom: 1em;
 
-  margin-bottom: 1em;
+  @include breakpoint($large) {
+    position: relative;
+    float: right;
+    width: $right-sidebar-width-narrow;
+    margin-left: span(0.5 of 12);
+    z-index: 10;
+  }
 
-
-
-  @include breakpoint($large) {
-
-    position: relative;
-
-    float: right;
-
-    width: $right-sidebar-width-narrow;
-
-    margin-left: span(0.5 of 12);
-
-    z-index: 10;
-
-  }
-
-
-
-  @include breakpoint($x-large) {
-
-    width: $right-sidebar-width;
-
-  }
-
+  @include breakpoint($x-large) {
+    width: $right-sidebar-width;
+  }
 }
-
-
 
 /*
-
-   Author profile and links
-
-   ========================================================================== */
-
-
-
-/* .profile_box는 이제 필요 없으므로 완전히 삭제합니다. */
-
-/* (기존에 있다면 삭제해주세요) */
-
-
+   Author profile and links
+   ========================================================================== */
 
 .author__avatar {
+  width: auto;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @include breakpoint($large) {
+    display: block;
+    width: auto;
+    height: auto;
+  }
 
-  /* display: table-cell; 속성 제거 */
+  img {
+    max-width: 280px;
+    min-width: 280px;
+    object-fit: cover;
+    border-radius: 0;
+    
+    @media (max-width: 1024px) {
+        padding: 0;
+        border: none;
+    }
 
-  /* vertical-align: top; 속성 제거 */
-
-  width: auto; /* 너비 자동 설정 */
-
-  height: auto; /* 높이 자동 설정 */
-
-  margin-left: auto; /* 가운데 정렬을 위해 추가 */
-
-  margin-right: auto; /* 가운데 정렬을 위해 추가 */
-
-  
-
-  @include breakpoint($large) {
-
-    display: block;
-
-    width: auto;
-
-    height: auto;
-
-  }
-
-
-
-  img {
-
-    max-width: 280px;
-
-    min-width: 280px; /* 이 값은 고정폭을 유지합니다. */
-
-    object-fit: cover;
-
-    border-radius: 0;
-
-    
-
-    /* 작은 화면에서 이미지 패딩/보더 제거 */
-
-    @media (max-width: 1024px) {
-
-        padding: 0;
-
-        border: none;
-
-    }
-
-
-
-    @include breakpoint($large) {
-
-      padding: 5px;
-
-      border: 1px solid $border-color;
-
-    }
-
-  }
-
+    @include breakpoint($large) {
+      padding: 5px;
+      border: 1px solid $border-color;
+    }
+  }
 }
-
-
 
 .author__content {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  line-height: 1.5;
+  text-align: center;
 
-  /* display: table-cell; 속성 제거 */
-
-  /* vertical-align: top; 속성 제거 */
-
-  display: block; /* 항상 블록 요소로 만듭니다 */
-
-  width: 100%;    /* 항상 너비를 100%로 만듭니다 */
-
-  padding-left: 0;
-
-  padding-right: 0;
-
-  line-height: 1.5; /* 줄 간격을 좀 더 보기 좋게 조정 */
-
-  text-align: center; /* 모바일에서 모든 텍스트 가운데 정렬 */
-
-
-
-  @include breakpoint($large) {
-
-    text-align: left; /* 데스크탑에서는 왼쪽 정렬로 되돌림 */
-
-  }
-
+  @include breakpoint($x-large) {
+    text-align: left;
+  }
 }
-
-
 
 .author__name {
+  margin: 0.5em 0;
 
-  margin: 0.5em 0; /* 위아래 여백을 조금 더 줍니다 */
-
-
-
-  @include breakpoint($large) {
-
-    margin-top: 10px;
-
-    margin-bottom: 10px;
-
-  }
-
+  @include breakpoint($large) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
-
-
 
 .sidebar .author__name {
-
-  @include breakpoint($medium) {
-
-    font-size: $type-size-3;
-
-  }
-
-  font-family: $sans-serif;
-
-  font-size: $type-size-4;
-
+  font-family: $sans-serif;
+  font-size: $type-size-3;
 }
-
-
 
 .author__bio {
+  margin: 0;
+  margin-bottom: 1em;
 
-  margin: 0;
-
-  margin-bottom: 1em; /* 아래 여백 추가 */
-
-
-
-  @include breakpoint($large) {
-
-    margin-top: 10px;
-
-    margin-bottom: 20px;
-
-  }
-
+  @include breakpoint($large) {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
 }
-
-
 
 .author__urls-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  font-family: $sans-serif;
+  z-index: 10;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  text-align: center;
 
-  position: relative;
+  li:last-child {
+    a {
+      margin-bottom: 0;
+    }
+  }
 
-  /* display: table-cell; 속성 제거 */
+  @include breakpoint($x-large) {
+    display: block;
+    text-align: left;
+  }
 
-  /* vertical-align: middle; 속성 제거 */
-
-  display: block; /* 항상 블록 요소로 만듭니다 */
-
-  width: 100%;    /* 항상 너비를 100%로 만듭니다 */
-
-  font-family: $sans-serif;
-
-  z-index: 10;
-
-  margin-left: auto;
-
-  margin-right: auto; /* 가운데 정렬을 위해 추가 */
-
-  cursor: pointer;
-
-  text-align: center; /* 버튼/링크 가운데 정렬 */
-
-
-
-  li:last-child {
-
-    a {
-
-      margin-bottom: 0;
-
-    }
-
-  }
-
-
-
-  @include breakpoint($large) {
-
-    display: block;
-
-    text-align: left; /* 데스크탑에서는 왼쪽 정렬로 되돌림 */
-
-  }
-
-
-
-  button {
-
-    margin-bottom: 0;
-
-    width: 120px;
-
-    padding: 0.5em;
-
-    @include breakpoint($large) {
-
-      display: none;
-
-    }
-
-  }
-
+  button {
+    margin-bottom: 0;
+    width: 120px;
+    padding: 0.5em;
+    @include breakpoint($large) {
+      display: none;
+    }
+  }
 }
 
-
-
+// 팝업 박스 디자인을 완전히 제거하고 항상 일반 목록으로 표시되도록 수정된 부분
 .author__urls {
-
-  display: none;
-
-  position: absolute; /* 이 속성은 작은 화면에서만 적용되어야 함 */
-
-  right: 0;
-
-  margin-top: 15px;
-
-  padding: 10px;
-
-  list-style-type: none;
-
-  border: 1px solid $border-color;
-
-  border-radius: $border-radius;
-
-  background: #fff;
-
-  z-index: -1;
-
-  box-shadow: 0 0 10px rgba(#000, 0.25);
-
-  cursor: default;
-
-  text-align: left; /* 드롭다운 메뉴 텍스트 정렬 */
-
-
-
-  @include breakpoint($large) {
-
-    display: block;
-
-    position: relative;
-
-    margin: 0;
-
-    padding: 0;
-
-    border: 0;
-
-    background: transparent;
-
-    box-shadow: none;
-
-    text-align: left; /* 데스크탑에서는 왼쪽 정렬 유지 */
-
-  }
-
-
-
-  &:before {
-
-    display: block;
-
-    content: "";
-
-    position: absolute;
-
-    top: -11px;
-
-    left: calc(50% - 10px);
-
-    width: 0;
-
-    border-style: solid;
-
-    border-width: 0 10px 10px;
-
-    border-color: $border-color transparent;
-
-    z-index: 0;
-
-
-
-    @include breakpoint($large) {
-
-      display: none;
-
-    }
-
-  }
-
-
-
-  &:after {
-
-    display: block;
-
-    content: "";
-
-    position: absolute;
-
-    top: -10px;
-
-    left: calc(50% - 10px);
-
-    width: 0;
-
-    border-style: solid;
-
-    border-width: 0 10px 10px;
-
-    border-color: #fff transparent;
-
-    z-index: 1;
-
-
-
-    @include breakpoint($large) {
-
-      display: none;
-
-    }
-
-  }
-
-
-
-  li {
-
-    white-space: nowrap;
-
-  }
-
-
-
-  a {
-
-    display: block;
-
-    margin-bottom: 5px;
-
-    padding-right: 5px;
-
-    padding-top: 2px;
-
-    padding-bottom: 2px;
-
-    color: inherit;
-
-    font-size: $type-size-5;
-
-    text-decoration: none;
-
-
-
-    &:hover {
-
-      text-decoration: underline;
-
-    }
-
-  }
-
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+
+  li {
+    white-space: nowrap;
+    text-align: center;
+    @include breakpoint($x-large) {
+      text-align: left;
+    }
+  }
+
+  a {
+    display: block;
+    margin-bottom: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    color: inherit;
+    font-size: $type-size-5;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
-
-
 
 .author__urls_sm{
+  padding: .25em;
+  font-size: 0.9rem;
+  display: block;
+  a {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
-  padding: .25em;
-
-  font-size: 0.9rem;
-
-  display: block;
-
-  a {
-
-    color: inherit;
-
-    text-decoration: none;
-
-    &:hover {
-
-      text-decoration: underline;
-
-    }
-
-  }
-
-  @include breakpoint($large) {
-
-    display: none;
-
-  }
-
+  @include breakpoint($x-large) {
+    display: none;
+  }
 }
 
+/* ==========================================================================
+   CUSTOM: 모바일 화면에서 상단 메뉴 항상 보이게 하기
+   ========================================================================== */
+
+.greedy-nav {
+  @include breakpoint(max-width $large) {
+    
+    .visible-links {
+      display: flex !important;
+      visibility: visible !important;
+      flex-wrap: wrap !important;
+    }
+
+    .hidden-links,
+    .greedy-nav__toggle {
+      display: none !important;
+    }
+  }
+}
