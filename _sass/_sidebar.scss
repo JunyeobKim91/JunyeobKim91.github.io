@@ -210,3 +210,15 @@
     }
   }
 }
+
+/* <= 1199px: 작은/중간 화면에서는 '작은 화면용'만 보이게 */
+@media (max-width: 1199px){
+  .email-item-lg { display: none !important; }  /* 리스트 쪽 숨김 */
+  .email-item-sm { display: inline-block !important; }
+}
+
+/* >= 1200px: 큰 화면에서는 '큰 화면용'만 보이게 */
+@media (min-width: 1200px){
+  .email-item-lg { display: list-item !important; } /* 리스트 쪽 표시 */
+  .email-item-sm { display: none !important; }      /* 작은 화면용 숨김 */
+}
