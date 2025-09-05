@@ -1,145 +1,41 @@
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-<link rel="manifest" href="images/site.webmanifest">
+{% if page.author and site.data.authors[page.author] %}
+  {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.author %}
+{% endif %}
 
-<meta name="msapplication-TileColor" content="#000000">
-<meta name="msapplication-TileImage" content="images/mstile-144x144.png?v=M44lzPylqQ">
-<meta name="msapplication-config" content="images/browserconfig.xml?v=M44lzPylqQ">
-<meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="assets/css/academicons.css"/>
+<div itemscope itemtype="http://schema.org/Person">
 
-<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
-<link rel="prefetch" href="{{ '/teaching/' | relative_url }}" as="document">
+<div class="author__avatar">
+  <img src="{{ site.author.avatar | relative_url }}"
+       alt="{{ site.author.name }}"
+       itemprop="image">
+  <img class="author__logo"
+       src="{{ '/images/ncstate-brick-4x1-red.png' | relative_url }}"
+       alt="NC State University"
+       style="display:block;width:100%;height:auto;margin:10px 0 12px;" />
+</div>
 
-<style>
-/* ===== CORRECTED masthead / greedy-nav ===== */
-/* On screens smaller than 1025px... */
-@media (max-width: 1024px) {
-  /* Force the visible links container to stay visible and wrap its contents */
-  .greedy-nav .visible-links {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    visibility: visible !important;
-    gap: 0.75rem; /* Optional: adds a little space between wrapped links */
-  }
+  <div class="author__content">
+    <h3 class="author__name" itemprop="name">{{ author.name }}</h3>
+    {% if author.bio %}<p class="author__bio" itemprop="description">{{ author.bio }}</p>{% endif %}
+  </div>
 
-  /* Force the hamburger button AND the hidden links drawer to NEVER appear */
-  .greedy-nav .greedy-nav__toggle,
-  .greedy-nav .hidden-links {
-    display: none !important;
-  }
-}
-
-/* ==========================================================================
-   DEFINITIVE LAYOUT SOLUTION (Fixed Sidebar & Responsive Profile)
-   ========================================================================== */
-
-/* --- 1. 데스크탑 레이아웃 (1025px 이상) --- */
-@media (min-width: 1025px) {
-  #main {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 1.5em;
-  }
-
-  .sidebar {
-    flex: 0 0 280px;
-    width: 280px;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 1.5em;
-    align-self: flex-start;
-    min-width: 0;
-  }
-
-  .page {
-    flex: 1;
-    min-width: 0;
-  }
-}
-
-/* --- 2. 태블릿 & 모바일 레이아웃 (1024px 이하) --- */
-@media (max-width: 1024px) {
-  #main { display: block; }
-
-  .sidebar {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 2em;
-    position: static;
-    flex: none;
-    padding: 1em 0;
-  }
-
-  .sidebar .author__avatar {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 280px;
-  }
-
-  .page { width: 100%; }
-
-  .author__profile .author__avatar,
-  .author__profile .author__logo,
-  .author__profile .author__content {
-    display: block !important;
-    width: auto !important;
-    margin: 0.5em auto !important;
-    padding: 0 !important;
-  }
-
-  .author__profile .author__avatar img {
-      min-width: unset !important;
-  }
-
-  .author__profile .author__logo {
-      display: block;
-      margin: 0.5em auto;
-      text-align: center;
-  }
-
-  .author__profile .author__name,
-  .author__profile .author__bio {
-      text-align: center !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      max-width: 90%;
-  }
-
-  .author__urls-wrapper {
-      text-align: center !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-  }
-}
-
-/* --- 3. 사이드바 내부 요소 정렬 및 이미지 비율 유지 (모든 화면) --- */
-.author__profile .author__avatar,
-.author__profile .author__logo,
-.author__profile .author__content {
-  display: block;
-  width: 100%;
-  text-align: center;
-  padding-left: 0;
-  padding-right: 0;
-  margin: 0 auto;
-}
-
-.sidebar .author__avatar img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-</style>
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      {% if author.location %}
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">{{ author.location }}</span>
+        </li>
+      {% endif %}
+      {% if author.email %}
+        <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+      {% endif %}
+      {% if author.uri %}
+        <li><a href="{{ author.uri }}" itemprop="url"><i class="fas fa-fw fa-link" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].website_label | default: "Website" }}</a></li>
+      {% endif %}
+      {% if author.github %}
+        <li><a href="https://github.com/{{ author.github }}"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+      {% endif %}
+      </ul>
+  </div>
+</div>
