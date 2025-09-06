@@ -22,138 +22,23 @@
 <link rel="prefetch" href="{{ '/teaching/' | relative_url }}" as="document">
 
 <style>
-/* === Critical: CSS가 늦게 붙어도 메뉴가 즉시 보이도록 강제 === */
-.greedy-nav > button { display: none !important; }                 /* 햄버거 숨김(원치 않으면 지워도 됨) */
-.greedy-nav .hidden-links { display: none !important; }            /* 숨김 드로어 강제 비표시 */
-.greedy-nav .visible-links {
-  display: flex !important;                                        /* 항상 보이도록 */
-  flex-wrap: wrap !important;                                      /* 폭이 부족하면 줄바꿈 */
-  visibility: visible !important;
-  gap: .65rem;                                                     /* 간격(원하면 조절) */
-}
-
-/* (선택) 작은 화면에서 링크 폰트 살짝 축소해 줄바꿈 줄이기 */
-@media (max-width: 480px){
-  .masthead__menu-item a { font-size: .95rem; }
-}
-
-/* ==========================================================================
-   DEFINITIVE LAYOUT SOLUTION (Fixed Sidebar & Responsive Profile)
-   ========================================================================== */
-
-/* --- 1. 데스크탑 레이아웃 (1025px 이상) --- */
-@media (min-width: 1025px) {
-  #main {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 1.5em;
-  }
-
-  .sidebar {
-    flex: 0 0 280px;
-    width: 280px;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 1.5em;
-    align-self: flex-start;
-    min-width: 0;
-  }
-
-  .page {
-    flex: 1;
-    min-width: 0;
-  }
-}
-
-/* --- 2. 태블릿 & 모바일 레이아웃 (1024px 이하) --- */
-@media (max-width: 1024px) {
-  #main { display: block; }
-
-  .sidebar {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 2em;
-    position: static;
-    flex: none;
-    padding: 1em 0;
-  }
-
-  .sidebar .author__avatar {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 280px;
-  }
-
-  .page { width: 100%; }
-
-  .author__profile .author__avatar,
-  .author__profile .author__logo,
-  .author__profile .author__content {
-    display: block !important;
-    width: auto !important;
-    margin: 0.5em auto !important;
-    padding: 0 !important;
-  }
-
-  .author__profile .author__avatar img {
-      min-width: unset !important;
-  }
-
-  .author__profile .author__logo {
-      display: block;
-      margin: 0.5em auto;
-      text-align: center;
-  }
-
-  .author__profile .author__name,
-  .author__profile .author__bio {
-      text-align: center !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      max-width: 90%;
-  }
-
-  .author__urls-wrapper {
-      text-align: center !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-  }
-}
-
-/* --- 3. 사이드바 내부 요소 정렬 및 이미지 비율 유지 (모든 화면) --- */
-.author__profile .author__avatar,
-.author__profile .author__logo,
-.author__profile .author__content {
-  display: block;
-  width: 100%;
-  text-align: center;
-  padding-left: 0;
-  padding-right: 0;
-  margin: 0 auto;
-}
-
-.sidebar .author__avatar img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-
-  /* 햄버거 버튼과 드롭다운을 전 해상도에서 완전히 비활성화 */
-.greedy-nav > button { 
-  display: none !important; 
-}
-.greedy-nav .hidden-links {
-  display: none !important;
-}
-
-/* 메뉴 항목은 항상 보이게 + 공간 부족하면 자연스럽게 줄바꿈 */
+/* 메뉴 항목을 항상 보이게 + 공간 부족 시 줄바꿈 */
 .greedy-nav .visible-links {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 0.75rem;          /* 간격 살짝 */
-  visibility: visible !important;
+  gap: .65rem;
 }
 
+/* 사이드바 반응형(지금 쓰는 레이아웃 유지) */
+@media (min-width: 1025px) {
+  #main { display:flex; align-items:flex-start; gap:1.5em; }
+  .sidebar { flex:0 0 280px; width:280px; position:sticky; top:1.5em; }
+  .page { flex:1; min-width:0; }
+}
+@media (max-width: 1024px) {
+  #main { display:block; }
+  .sidebar { width:100%; text-align:center; margin-bottom:2em; position:static; padding:1em 0; }
+  .sidebar .author__avatar { margin-left:auto; margin-right:auto; max-width:280px; }
+}
 </style>
+
