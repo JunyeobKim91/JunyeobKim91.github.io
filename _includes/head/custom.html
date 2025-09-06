@@ -40,5 +40,14 @@
   .sidebar { width:100%; text-align:center; margin-bottom:2em; position:static; padding:1em 0; }
   .sidebar .author__avatar { margin-left:auto; margin-right:auto; max-width:280px; }
 }
+
+  /* ==== tighten nav spacing ==== */
+#site-nav .visible-links { gap: .2rem !important; }            /* flex gap 더 촘촘하게 */
+#site-nav .visible-links > li { margin: 0 !important; }        /* li 여백 제거 */
+#site-nav .visible-links > li > a {
+  padding-left: .35rem !important;                             
+  padding-right: .35rem !important;    /* 핵심: 링크 패딩 축소 */
+}
+
 </style>
 
