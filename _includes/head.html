@@ -6,14 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
-  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  document.documentElement.className =
+    document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
-<link rel="preload" as="style" href="{{ '/assets/css/main.css' | relative_url }}" onload="this.onload=null;this.rel='stylesheet'"> <noscript><link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}"></noscript>
+<!-- styles: 일반 link로 (preload 제거) -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
 <meta http-equiv="cleartype" content="on">
 
-<!-- Prefetch Teaching page for faster load -->
+<!-- Prefetch (선택) -->
 <link rel="prefetch" href="{{ '/' | relative_url }}" as="document">
 <link rel="prefetch" href="{{ '/research/' | relative_url }}" as="document">
 <link rel="prefetch" href="{{ '/teaching/' | relative_url }}" as="document">
