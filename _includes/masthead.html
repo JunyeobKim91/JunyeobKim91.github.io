@@ -2,24 +2,25 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
+
+        <!-- (삭제) <button><div class="navicon"></div></button> -->
 
         <ul class="visible-links">
-  <!-- Homepage 버튼 -->
-  <li class="masthead__menu-item masthead__menu-home-item">
-    <a href="{{ '/' | relative_url }}" data-turbo-frame="content">Homepage</a>
-  </li>
+          <!-- Homepage -->
+          <li class="masthead__menu-item masthead__menu-home-item">
+            <a href="{{ '/' | relative_url }}">Homepage</a>
+          </li>
 
-  <!-- navigation.yml 에 정의된 메뉴 -->
-  {% for link in site.data.navigation.main %}
-    <li class="masthead__menu-item">
-      <a href="{{ link.url | relative_url }}" data-turbo-frame="content">{{ link.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+          <!-- navigation.yml 메뉴 -->
+          {% for link in site.data.navigation.main %}
+            <li class="masthead__menu-item">
+              <a href="{{ link.url | relative_url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
 
+        <!-- (삭제) <ul class="hidden-links hidden"></ul> -->
 
-        <ul class="hidden-links hidden"></ul>
       </nav>
     </div>
   </div>
