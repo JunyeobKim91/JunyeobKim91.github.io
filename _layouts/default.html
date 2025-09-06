@@ -8,18 +8,17 @@ layout: compress
     {% include head.html %}
     {% include head/custom.html %}
   </head>
-<script type="module" src="https://cdn.skypack.dev/@hotwired/turbo"></script>
 
   <body>
-
     {% include browser-upgrade.html %}
     {% include masthead.html %}
-<turbo-frame id="content">
+
     <div id="main" role="main">
       {% include sidebar.html %}
-    
       <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-        {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+        {% if page.title %}
+          <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
+        {% endif %}
         <div class="page__inner-wrap">
           <section class="page__content" itemprop="text">
             {{ content }}
@@ -27,38 +26,7 @@ layout: compress
         </div>
       </article>
     </div>
-</turbo-frame>
 
-{% include scripts.html %}
-
-<script>
-(function () {
-  function fixGreedyNav() {
-    // 1) 테마가 쓰는 'no-js' -> 'js' 토글이 실패한 기기 대비
-    try {
-      document.documentElement.className =
-        document.documentElement.className.replace(/\bno-js\b/g, '') + ' js';
-    } catch (e) {}
-
-    // 2) 강제로 리사이즈 이벤트를 쏴서 greedy-nav가 폭을 재계산하게 함
-    window.dispatchEvent(new Event('resize'));
-
-    // 3) 혹시 전역 API가 있으면 직접 호출 (없으면 무시)
-    if (window.greedyNavigation && typeof window.greedyNavigation.fit === 'function') {
-      try { window.greedyNavigation.fit(); } catch (e) {}
-    }
-  }
-
-  // 첫 로드
-  document.addEventListener('DOMContentLoaded', fixGreedyNav);
-
-  // Turbo/instant.page 등 부분 로딩 이후
-  document.addEventListener('turbo:load', fixGreedyNav);
-  document.addEventListener('turbo:frame-load', fixGreedyNav);
-
-  // 해시 이동(Research 같은 앵커 이동)을 써도 보정
-  window.addEventListener('hashchange', fixGreedyNav);
-})();
-</script>
+    {% include scripts.html %}
+  </body>
 </html>
-
