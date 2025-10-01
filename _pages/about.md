@@ -23,7 +23,7 @@ Ph.D. Candidate in Economics, North Carolina State University
 
 My research focuses on Agricultural Economics, Commodity prices, Price cycle, and Time-series.
 
-You can find my **[Curriculum Vitae (CV)](https://drive.google.com/file/d/1cc-Elinx-wNS3XPOIOIAZ5TNE3LnP-Dv/view?usp=sharing)**.
+You can find my **[Curriculum Vitae (CV)](https://drive.google.com/file/d/17NIglNctm-kqUFgilL8QmvtCn5HNYGkX/view?usp=sharing)**.
 
 
 ---
@@ -38,7 +38,7 @@ This study examines long-term cycles in commodity prices and their interconnecte
 
 ## Education
 
-- **Ph.D. in Economics**, North Carolina State University, Raleigh, NC *2019 – 2025(expected)* - Dissertation: *“Essays on Commodity Price Cycle”* - Committee: Profs. Barry Goodwin (Co-Advisor), Daisoon Kim (Co-Advisor)
+- **Ph.D. in Economics**, North Carolina State University, Raleigh, NC *2019 – 2025 (expected)* - Dissertation: *“Essays on Commodity Price Cycle”* - Co-advisors: Profs. Barry Goodwin (Co-Advisor), Daisoon Kim (Co-Advisor)
 
 - **M.A. in Economics**, University of Wisconsin–Madison *2017 – 2019*
 
