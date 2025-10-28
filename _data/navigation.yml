@@ -1,6 +1,6 @@
 # main links
 main:
   - title: "Research"
-    url: "/#-Research"
+    url: "/Research/"
   - title: "Teaching"
     url: "/teaching/"
